@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {font-family: 'Courier New', Courier, monospace;}
+    </style>
+</head>
+<body>
+
+<h2>JavaScript Bitwise NOT</h2>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = ~ 5;
+</script>
+
+<h2>Explanation:</h2>
+    <table>
+        <tr>
+            <td>5</td>
+            <td>00000000000000000000000000000101</td>
+        </tr>
+        <tr>
+            <td>~5</td>
+            <td>11111111111111111111111111111010 (-6)</td>
+        </tr>
+    </table>	
+</body>
+</html>
