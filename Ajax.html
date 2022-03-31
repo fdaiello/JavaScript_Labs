@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<div id="demo">
+<p>Let AJAX change this text.</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<!-- Get Request -->
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;  // In this context, this refers to the object that called the funcion: ie. xhttp
+  }
+  xhttp.open("GET", "ajax_info.txt");
+  xhttp.send();
+}
+</script>
+
+<!-- Post Request -->
+<script>
+    function loadDoc2() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+      xhttp.open("POST", "demo_post2.asp");
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("fname=Henry&lname=Ford");
+    }
+</script>
+
+<!-- Synchronous GET  -->
+<script>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "ajax_info.txt", false);  // false parameter means call will not be syncrhonous - the default
+      xhttp.send();
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+</script>
+
+</body>
+</html>
