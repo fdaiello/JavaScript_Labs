@@ -3,17 +3,41 @@
 <body>
 
 <p id="demo"></p>
+<p id="demo2"></p>
 
 <script>
 x = 5; // Assign 5 to x
 
-var x; // Declare x
 
 elem = document.getElementById("demo"); // Find an element 
 elem.innerHTML = x;           // Display x in the element
 
+var x; // Declare x
 
 </script>
+
+<!-- Reference Error: let is hoisted but dont initialize -->
+<script>
+{
+    carName = "Volvo";
+    let carName;    
+
+    elem = document.getElementById("demo2"); // Find an element 
+    elem.innerHTML = carName;           // Display x in the element
+}
+</script>
+
+<!-- Ok -->
+<script>
+{
+    let carName;    
+    carName = "Volvo";
+
+    elem = document.getElementById("demo2"); // Find an element 
+    elem.innerHTML = carName;           // Display x in the element
+}
+</script>
+
 
 </body>
 </html> 
