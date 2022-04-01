@@ -3,6 +3,16 @@
 <body>
 <p id="demo">Fetch a file to change this text.</p>
 
+<p>
+    The Fetch API is a modern interface that allows you to make HTTP requests to servers from web browsers.<br>
+
+    If you have worked with XMLHttpRequest (XHR) object, the Fetch API can perform all the tasks as the XHR object does.<br>
+
+    In addition, the Fetch API is much simpler and cleaner. It uses the Promise to deliver more flexible features to make requests to servers from the web browsers.<br>
+
+    The fetch() method is available in the global scope that instructs the web browsers to send a request to a URL.<br>
+</p>
+
 <script>
     let file = "fetch_info.txt"  
     fetch (file)
@@ -42,6 +52,21 @@
             body: formData,
             method: "post"
         });
+</script>
+
+<!-- Asynch Function-->
+<script>
+async function fetchText() {
+    let response = await fetch('fetch_info.txt');
+
+    console.log(response.status); // 200
+    console.log(response.statusText); // OK
+
+    if (response.status === 200) {
+        let data = await response.text();
+        // handle data
+    }
+}    
 </script>
 </body>
 </html>

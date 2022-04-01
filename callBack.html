@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Callback example</h1>
+    <p id="username"></p>
+<script>
+
+function getUsers(callback) {
+    setTimeout(() => {
+      callback([
+        { username: 'john', email: 'john@test.com' },
+        { username: 'jane', email: 'jane@test.com' },
+      ]);
+    }, 1000);
+  }
+  
+  function findUser(username, callback) {
+    getUsers((users) => {
+      const user = users.find((user) => user.username === username);
+      callback(user);
+    });
+  }
+  
+  function showUserName(user){
+      document.getElementById("username").innerHTML=user.username;
+  }
+
+  findUser('john', console.log);
+  findUser('john', showUserName);
+
+</script>
+</html>
+</body>
